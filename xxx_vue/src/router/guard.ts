@@ -12,7 +12,7 @@ class guard {
     }
 
     private async beforeEach(to: RouteLocationNormalized, _from: RouteLocationNormalized, next: NavigationGuardNext) {
-        if(to.path==='/login') {
+        if (to.path === '/login') {
             next()
             return;
         }
@@ -21,9 +21,13 @@ class guard {
         if (!isLogin || !isGuest) {
             next({ path: isLogin ? '/home' : '/login' }); // 如果未登录或者不允许游客访问，跳转到相应页面
             return;
-        } 
+        }
         const userStore = user() //pinia_userStore
-        if (this.token() && !to.path.startsWith('/member')) { await userStore.getUserInfo() } //加载前获取用户数据
+        if (this.token() && !to.path.startsWith('/member')) { 
+            await userStore.getUserInfo() 
+        } else {
+            next({path: '/login'})
+        } //加载前获取用户数据
         //历史菜单
         next()
     }
