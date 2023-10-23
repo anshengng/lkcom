@@ -1,0 +1,76 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  id        Int       @id @unique @default(autoincrement())
+  name      String
+  nickname  String?
+  password  String
+  realname  String?
+  address   String?
+  website   String?
+  wechat    String?
+  microblog String?
+  github    String?
+  qq        String?
+  mobile    String?
+  secret    String?
+  avator    String?
+  createAt  DateTime  @default(now())
+  updateAt  DateTime  @updatedAt
+  role      String?   @default("admin")
+  app       app[]
+  comment   comment[]
+  post      post[]
+}
+
+model app {
+  id          Int       @id @default(autoincrement()) @db.UnsignedInt
+  title       String
+  content     String    @db.VarChar(255)
+  description String?
+  preview     String
+  createAt    DateTime  @default(now())
+  updateAt    DateTime  @updatedAt
+  is_free     Boolean   @default(true)
+  user        user?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      Int?
+  comment     comment[]
+}
+
+model comment {
+  id       Int      @id @default(autoincrement()) @db.UnsignedInt
+  content  String
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+  app      app?     @relation(fields: [appId], references: [id], onDelete: Cascade)
+  appId    Int?     @db.UnsignedInt
+
+  user   user? @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId Int?
+
+  commentId Int?      @db.UnsignedInt
+  reply     comment?  @relation("replys", fields: [commentId], references: [id], onDelete: Cascade)
+  replys    comment[] @relation("replys")
+
+  post   post? @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId Int?  @db.UnsignedInt
+}
+
+model post {
+  id       Int       @id @default(autoincrement()) @db.UnsignedInt
+  title    String
+  content  String 
+  preview  String?
+  createAt DateTime  @default(now())
+  updateAt DateTime  @updatedAt
+  user     user?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId   Int?
+  comment  comment[]
+}
