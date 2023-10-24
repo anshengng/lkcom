@@ -49,7 +49,7 @@ export default function usePost() {
             method: 'post',
             data: commentModel.value
         })
-        
+        await findOne(pid)
         return res;
     }
 
