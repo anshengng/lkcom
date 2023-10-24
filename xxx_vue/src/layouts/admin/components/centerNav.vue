@@ -6,8 +6,9 @@ import userStore from '@/store/userStore';
 let isFullScreen = false
 const user = userStore()
 
-const userInfo = computed(()=>user.userInfo)
+const userInfo = computed(() => user.userInfo)
 let showMessage = ref<boolean>(false)
+const token = computed(() => user.token)
 
 document.documentElement.addEventListener('click', () => {
     showMessage.value = false
@@ -46,8 +47,8 @@ const showMsg = () => {
                 <span class="hidden">全屏</span>
             </i>
         </div>
-        <div class="group h-full flex items-center">
-            <div class="flex justify-center items-center">
+        <div class="group h-full flex items-center" v-if="token">
+            <div class="flex justify-center items-center min-w-[100px]">
                 <img :src="userInfo.avator" class="w-10 h-10 rounded-full object-cover">
                 <span class="ml-4 text-lg md:block hidden">{{ userInfo.nickname || userInfo.name }}</span>
             </div>
@@ -62,6 +63,10 @@ const showMsg = () => {
                     <a class="px-3 py-2 hover:bg-slate-400 cursor-pointer" @click="utils.user.userLogout">退出登录</a>
                 </div>
             </div>
+        </div>
+        <div v-else>
+            <button class="w-10 h-6 bg-gray-300 text-xs rounded-md " @click="$router.push('/login')">登录</button>
+            <button class="w-10 h-6 bg-gray-300 ml-1 text-xs rounded-md" @click="$router.push('/register')">注册</button>
         </div>
     </div>
 </template>

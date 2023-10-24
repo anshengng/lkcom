@@ -26,6 +26,7 @@ export async function userLogout() {
     utils.store.remove(LoginEnum.TOKEN_KEY)
     //清空pinia 的userinfo
     user.userInfo = {}
+    user.token = ''
     router.push('/')
 }
 

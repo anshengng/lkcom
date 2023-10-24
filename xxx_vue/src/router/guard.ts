@@ -12,7 +12,7 @@ class guard {
     }
 
     private async beforeEach(to: RouteLocationNormalized, _from: RouteLocationNormalized, next: NavigationGuardNext) {
-        if (to.path === '/login') {
+        if (to.path === '/login' ||to.path === '/register') {
             next()
             return;
         }
@@ -27,8 +27,6 @@ class guard {
             if (!to.path.startsWith('/member')) {
                 await userStore.getUserInfo()
             }
-        } else {
-            next({ path: '/login' })
         } //加载前获取用户数据
         //历史菜单
         next()

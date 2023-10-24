@@ -5,13 +5,13 @@
 
 <template>
     <div class="md:w-full md:grid-cols-2 grid gap-4">
-        <div class="mt-3 px-5 py-3 bg-slate-200 h-[200px] rounded-3xl">
+        <div class="mt-3 px-5 py-3 bg-slate-200 h-[200px] rounded-md">
             <p class="text-2xl font-bold">网站公告</p>
             <div class="notice h-[130px] line-clamp-4 p-4 break-words whitespace-normal text-xl">
                 tetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetes
             </div>
         </div>
-        <div class="mt-3 py-3 bg-slate-200 h-[200px] rounded-3xl">
+        <div class="mt-3 py-3 bg-slate-200 h-[200px] rounded-md">
             <p class="text-2xl px-5 pb-2 font-bold border-b-[1px] border-gray-500 block w-full">社区小贴</p>
             <div class="flex items-center flex-col">
                 <div class="md:text-xl font-bold pt-2 text-gray-500">这是一个主张友好、分享、自由的技术交流社区</div>
