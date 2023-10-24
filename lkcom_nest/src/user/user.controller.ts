@@ -23,7 +23,6 @@ export class UserController {
     if((dto as any).password_confirmed){
       delete (dto as any).password_confirmed
     } // 更新密码时删除确认密码
-
     const updateState = await this.userService.update(user.id, dto);
     delete updateState.password
     return updateState;

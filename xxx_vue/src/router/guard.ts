@@ -23,10 +23,12 @@ class guard {
             return;
         }
         const userStore = user() //pinia_userStore
-        if (this.token() && !to.path.startsWith('/member')) { 
-            await userStore.getUserInfo() 
+        if (this.token()) {
+            if (!to.path.startsWith('/member')) {
+                await userStore.getUserInfo()
+            }
         } else {
-            next({path: '/login'})
+            next({ path: '/login' })
         } //加载前获取用户数据
         //历史菜单
         next()

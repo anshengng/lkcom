@@ -15,7 +15,7 @@ export class UserService {
             },
             data: {
                 ...dto,
-                password: await hash(dto.password),
+                password: dto.password && await hash(dto.password),
             }
         })
     }
