@@ -7,6 +7,6 @@ export class AdminGuard implements CanActivate {
         context: ExecutionContext,
     ): boolean | Promise<boolean> | Observable<boolean> {
         const { user } = context.switchToHttp().getRequest(); 
-        return user?.id === 3 //只有id正确时通过 限制只有管理员才能
+        return user?.id === 11 //只有id正确时通过 限制只有管理员才能
     }
 }
