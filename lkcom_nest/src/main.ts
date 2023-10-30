@@ -12,6 +12,6 @@ async function bootstrap() {
   app.useGlobalInterceptors(new TransformInterceptor()); 
   app.useStaticAssets('public', { prefix: '/public' }); 
   //第一个public为静态资源目录。prefix: '/public' 则是用于指定 URL 的前缀
-  await app.listen(3000);
+  await app.listen(3002);
 }
 bootstrap();

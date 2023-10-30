@@ -12,6 +12,7 @@
     "@kangc/v-md-editor": "^2.3.17",
     "@toast-ui/editor": "^3.2.2",
     "@types/echarts": "^4.9.18",
+    "@types/mockjs": "^1.0.9",
     "@vee-validate/i18n": "^4.11.1",
     "@vee-validate/rules": "^4.11.1",
     "@wangeditor/editor": "^5.1.23",
