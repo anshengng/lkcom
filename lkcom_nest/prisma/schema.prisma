@@ -33,7 +33,7 @@ model user {
 model app {
   id          Int       @id @default(autoincrement()) @db.UnsignedInt
   title       String
-  content     String    @db.VarChar(255)
+  content     String    @db.Text
   description String?
   preview     String
   createAt    DateTime  @default(now())
