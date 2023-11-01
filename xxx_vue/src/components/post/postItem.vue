@@ -8,8 +8,7 @@ const { post } = defineProps<{
 
 
 <template>
-    <div>
-        <el-card shadow="hover" :body-style="{ padding: '20px', cursor: 'pointer' }">
+        <el-card shadow="hover" :body-style="{ padding: '20px', cursor: 'pointer' }" class="mb-4">
             <div class="postitem flex flex-col min-h-[100px] max-h-[160px]">
                 <div class="flex items-center justify-between">
                     <p class="duration-300 hover:text-red-500 font-bold">{{ post.title }}</p>
@@ -29,7 +28,6 @@ const { post } = defineProps<{
                 </div>
             </div>
         </el-card>
-    </div>
 </template>
 
 

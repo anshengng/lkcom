@@ -10,8 +10,10 @@ await findAll()
 <template>
     <div class="flex justify-center">
         <div class="grid grid-flow-row justify-center gap-2 mt-3">
-            <post-item v-for="post in postList" :key="post.id" :post="post"
-                @click="$router.push({ path: '/post/detail', query: { id: post.id } })"></post-item>
+            <div>
+                <post-item v-for="post in postList" :key="post.id" :post="post"
+                    @click="$router.push({ path: '/post/detail', query: { id: post.id } })"></post-item>
+            </div>
             <side-menu></side-menu>
         </div>
     </div>
