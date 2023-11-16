@@ -11,6 +11,7 @@ lerna-debug.log*
 **/dist/
 **/.vite/
 **/.vscode/
+**/.vscode/
 dist-ssr
 *.local
 
