@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import CenterNav from '../admin/components/centerNav.vue';
-
+import CenterNav from "../admin/components/centerNav.vue";
 </script>
-
 
 <template>
     <div class="h-20 flex justify-center">
@@ -24,18 +22,17 @@ import CenterNav from '../admin/components/centerNav.vue';
     </div>
 </template>
 
-
 <style lang="scss" scoped>
 div {
     div a {
         @apply text-xl font-bold text-gray-600 ml-5 pt-1 cursor-pointer;
 
         &:hover {
-            @apply text-gray-400
+            @apply text-gray-400;
         }
 
         &:active {
-            @apply text-gray-600
+            @apply text-gray-600;
         }
     }
 }

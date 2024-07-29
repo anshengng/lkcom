@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Suspense } from 'vue';
 import TopBar from '@/layouts/header/topBar.vue'
+import FooterBar from '@/layouts/footer/footBar.vue'
 // import userinfo from '@/apis/user'
 
 // const response  = await userinfo()
@@ -13,6 +14,7 @@ import TopBar from '@/layouts/header/topBar.vue'
   <Suspense>
     <router-view></router-view>
   </Suspense>
+  <FooterBar></FooterBar>
 </template>
 
 <style scoped></style>
