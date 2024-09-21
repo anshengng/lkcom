@@ -33,5 +33,10 @@ export const routes = [
         path: "/:any(.*)",
         name: 'NotFound',
         component: () => import("@/views/error/404.vue"),
-    }
+    },
+    {
+        name: 'homepage',
+        path: '/homepage',
+        component: () => import('@/layouts/home-page.vue'),
+    } 
 ] as RouteRecordRaw[]
